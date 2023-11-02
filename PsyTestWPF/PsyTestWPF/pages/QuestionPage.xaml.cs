@@ -20,9 +20,45 @@ namespace PsyTestWPF.pages
     /// </summary>
     public partial class QuestionPage : Page
     {
-        public QuestionPage()
+        static List<string> questions;
+        public static string question_text { get; set; } = null;
+        public static string NumOfQuestonStr { get; set; } = null;
+        static int NumOfQueston;
+        public QuestionPage(string question, List<string> _questions, int _numofques)
         {
+            question_text = question;
+            questions = _questions;
+            NumOfQueston = _numofques;
+            NumOfQuestonStr = $"{NumOfQueston+1}/{questions.Count()}";
+            DataContext = this;
             InitializeComponent();
+        }
+
+        private void ButtonNo_Click(object sender, RoutedEventArgs e)
+        {
+            if (NumOfQueston + 1 < questions.Count())
+            {
+                NavigationService.Navigate(new QuestionPage(questions[NumOfQueston + 1], questions, NumOfQueston + 1));
+            }
+            else
+            {
+                NavigationService.Navigate(new EndPage());
+            }
+        }
+        private void ButtonYes_Click(object sender, RoutedEventArgs e)
+        {
+            if (NumOfQueston + 1 < questions.Count())
+            {
+                NavigationService.Navigate(new QuestionPage(questions[NumOfQueston + 1], questions, NumOfQueston + 1));
+            }
+            else
+            {
+                NavigationService.Navigate(new EndPage());
+            }
+        }
+        private void UserAnswered(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new QuestionPage(questions[NumOfQueston + 1], questions, NumOfQueston + 1));
         }
     }
 }

@@ -45,12 +45,12 @@ namespace PsyTestWPF
     
     public class TxtToListConverter
     {
-        public List<byte> Convert(string file_name)
+        public static List<string> Convert(string file_name)
         {
-            List<byte> answers = new List<byte>();
+            List<string> auestions = new List<string>();
             //коневертация из файла в лист
 
-            return answers;
+            return auestions;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,5 +25,12 @@ namespace PsyTestWPF.pages
         {
             InitializeComponent();
         }
+
+        private void ButtonFin_Click(object sender, RoutedEventArgs e)
+        {
+            //smth
+            
+        }
+
     }
 }

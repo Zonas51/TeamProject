@@ -6,9 +6,35 @@
       xmlns:local="clr-namespace:PsyTestWPF.pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="QuestionPage">
+      Title="QuestionPage"
+      Background="#ffffff">
 
     <Grid>
-        
-    </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Row="2" Grid.Column="2" Height="100" Width="100">
+            <RadioButton x:Name="ButtonYes" Click="ButtonYes_Click" GroupName="UserAnswered"></RadioButton>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="4" Height="100" Width="100">
+            <RadioButton x:Name="ButtonNo" Click="ButtonNo_Click" GroupName="UserAnswered"></RadioButton>
+        </Viewbox>
+        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" FontSize="30" VerticalAlignment="Top" Height="100" Grid.ColumnSpan="5" TextWrapping="Wrap"  Text="{Binding question_text}"></TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding NumOfQuestonStr}" FontSize="40"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" Height="30" FontSize="18" HorizontalAlignment="Center">Согласен</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="4" VerticalAlignment="Bottom" Height="30" FontSize="18" HorizontalAlignment="Center">Не согласен</TextBlock>
+    </Grid> 
 </Page>

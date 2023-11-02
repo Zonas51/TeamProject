@@ -20,9 +20,16 @@ namespace PsyTestWPF.pages
     /// </summary>
     public partial class StartPage : Page
     {
-        public StartPage()
+        Page page;
+        public StartPage(Page _page)
         {
             InitializeComponent();
+            page = _page;
+        }
+
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(page);
         }
     }
 }

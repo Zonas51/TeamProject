@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PsyTestWPF.pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,17 @@ namespace PsyTestWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> questions = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
+            questions.Add("Вы не зацикливаетесь на одной стороне проблемы, а стараетесь рассмотреть все возможные варианты ее решения.");
+            questions.Add("вопрос 2");
+            questions.Add("вопрос 3");
+            //questions = TxtToListConverter.Convert("questions.txt");
+            
+            MainFrame.Content = new StartPage(new QuestionPage(questions[0], questions, 0));
         }
+        
     }
 }
