@@ -21,17 +21,32 @@ namespace PsyTestWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> questions = new List<string>();
+        static List<byte> Answers = new List<byte>();
+        static List<string> Questions = new List<string>();
         public MainWindow()
         {
+            Questions.Add("Вы не зацикливаетесь на одной стороне проблемы, а стараетесь рассмотреть все возможные варианты ее решения.");
+            Questions.Add("вопрос 2");
+            Questions.Add("вопрос 3");
+            // PullQuestions();
             InitializeComponent();
-            questions.Add("Вы не зацикливаетесь на одной стороне проблемы, а стараетесь рассмотреть все возможные варианты ее решения.");
-            questions.Add("вопрос 2");
-            questions.Add("вопрос 3");
-            //questions = TxtToListConverter.Convert("questions.txt");
-            
-            MainFrame.Content = new StartPage(new QuestionPage(questions[0], questions, 0));
+            MainFrame.Content = new StartPage();
         }
-        
+        public static void AddAnswer(byte num)
+        {
+            Answers.Add(num);
+        }
+        public static List<byte> GetAnswers()
+        {
+            return Answers;
+        }
+        public static List<string> GetQuestions()
+        {
+            return Questions;
+        }
+        public static void PullQuestions()
+        {
+            Questions = TxtToListConverter.Convert("questions.txt");
+        }
     }
 }

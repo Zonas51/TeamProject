@@ -24,10 +24,10 @@ namespace PsyTestWPF.pages
         public static string question_text { get; set; } = null;
         public static string NumOfQuestonStr { get; set; } = null;
         static int NumOfQueston;
-        public QuestionPage(string question, List<string> _questions, int _numofques)
+        public QuestionPage(int _numofques)
         {
-            question_text = question;
-            questions = _questions;
+            questions = MainWindow.GetQuestions();
+            question_text = questions[_numofques];
             NumOfQueston = _numofques;
             NumOfQuestonStr = $"{NumOfQueston+1}/{questions.Count()}";
             DataContext = this;
@@ -36,29 +36,24 @@ namespace PsyTestWPF.pages
 
         private void ButtonNo_Click(object sender, RoutedEventArgs e)
         {
-            if (NumOfQueston + 1 < questions.Count())
-            {
-                NavigationService.Navigate(new QuestionPage(questions[NumOfQueston + 1], questions, NumOfQueston + 1));
-            }
-            else
-            {
-                NavigationService.Navigate(new EndPage());
-            }
+            MainWindow.AddAnswer(0);
+            GoNextPage();
         }
         private void ButtonYes_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow.AddAnswer(1);
+            GoNextPage();
+        }
+        private void GoNextPage()
+        {
             if (NumOfQueston + 1 < questions.Count())
             {
-                NavigationService.Navigate(new QuestionPage(questions[NumOfQueston + 1], questions, NumOfQueston + 1));
+                NavigationService.Navigate(new QuestionPage(NumOfQueston + 1));
             }
             else
             {
                 NavigationService.Navigate(new EndPage());
             }
-        }
-        private void UserAnswered(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new QuestionPage(questions[NumOfQueston + 1], questions, NumOfQueston + 1));
         }
     }
 }
