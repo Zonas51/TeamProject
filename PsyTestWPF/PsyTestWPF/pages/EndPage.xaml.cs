@@ -29,6 +29,7 @@ namespace PsyTestWPF.pages
         private void ButtonFin_Click(object sender, RoutedEventArgs e)
         {
             //smth
+            App.Current.Shutdown();
         }
     }
 }
