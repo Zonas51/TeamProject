@@ -66,7 +66,9 @@ namespace PsyTestWPF
            
             while (!sr.EndOfStream)
             {
-                auestions.Add(sr.ReadLine());
+                string str = sr.ReadLine();
+                str = str.Remove(0, 3).Trim();
+                auestions.Add(str);
             }
 
             return auestions;
