@@ -1,5 +1,4 @@
 ﻿using PsyTestWPF.pages;
-using Spire.Xls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Spire.Xls.Core;
 
 namespace PsyTestWPF
 {
@@ -28,8 +26,10 @@ namespace PsyTestWPF
         static List<string> Questions = new List<string>();
         public MainWindow()
         {
-            
-            PullQuestions();
+            Questions.Add("Вы не зацикливаетесь на одной стороне проблемы, а стараетесь рассмотреть все возможные варианты ее решения.");
+            Questions.Add("вопрос 2");
+            Questions.Add("вопрос 3");
+            // PullQuestions();
             InitializeComponent();
             MainFrame.Content = new StartPage();
         }
