@@ -55,5 +55,10 @@ namespace PsyTestWPF.pages
                 NavigationService.Navigate(new EndPage());
             }
         }
+
+        private void ButtonNo_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

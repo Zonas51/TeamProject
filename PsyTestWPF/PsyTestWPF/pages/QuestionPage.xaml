@@ -30,7 +30,7 @@
             <RadioButton x:Name="ButtonYes" Click="ButtonYes_Click"></RadioButton>
         </Viewbox>
         <Viewbox Grid.Row="2" Grid.Column="4" Height="100" Width="100">
-            <RadioButton x:Name="ButtonNo" Click="ButtonNo_Click"></RadioButton>
+            <RadioButton x:Name="ButtonNo" Click="ButtonNo_Click" Checked="ButtonNo_Checked"></RadioButton>
         </Viewbox>
         <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" FontSize="30" VerticalAlignment="Top" Height="100" Grid.ColumnSpan="5" TextWrapping="Wrap"  Text="{Binding question_text}"></TextBlock>
         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding NumOfQuestonStr}" FontSize="40"></TextBlock>
