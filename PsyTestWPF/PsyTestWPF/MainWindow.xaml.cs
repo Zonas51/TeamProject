@@ -28,7 +28,6 @@ namespace PsyTestWPF
         static List<string> Questions = new List<string>();
         public MainWindow()
         {
-            
             PullQuestions();
             InitializeComponent();
             MainFrame.Content = new StartPage();
@@ -36,6 +35,10 @@ namespace PsyTestWPF
         public static void AddAnswer(byte num)
         {
             Answers.Add(num);
+        }
+        public static void RemoveAnswer()
+        {
+            Answers.RemoveAt(Answers.Count - 1);
         }
         public static List<byte> GetAnswers()
         {
@@ -49,6 +52,5 @@ namespace PsyTestWPF
         {
             Questions = TxtToListConverter.Convert("questions.txt");
         }
-        
     }
 }

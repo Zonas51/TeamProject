@@ -29,9 +29,13 @@ namespace PsyTestWPF.pages
             questions = MainWindow.GetQuestions();
             question_text = questions[_numofques];
             NumOfQueston = _numofques;
-            NumOfQuestonStr = $"{NumOfQueston+1}/{questions.Count()}";
+            NumOfQuestonStr = $"{NumOfQueston + 1}/{questions.Count()}";
             DataContext = this;
             InitializeComponent();
+            if (_numofques == 0)
+            {
+                BackButton.IsEnabled = false;
+            }
         }
 
         private void ButtonNo_Click(object sender, RoutedEventArgs e)
@@ -56,7 +60,19 @@ namespace PsyTestWPF.pages
             }
         }
 
+        private void GoPrevPage()
+        {
+            if (NumOfQueston != 0)
+            {
+                NavigationService.Navigate(new QuestionPage(NumOfQueston - 1));
+            }
+        }
 
-        
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            MainWindow.RemoveAnswer();
+            GoPrevPage();
+        }
     }
 }

@@ -16,6 +16,5 @@ namespace PsyTestWPF
     public interface ISaver
     {
         void SaveResult(IUser user);
-
     }
 }

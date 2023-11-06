@@ -12,8 +12,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="130"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
@@ -36,5 +36,6 @@
         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding NumOfQuestonStr}" FontSize="40"></TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" Height="30" FontSize="18" HorizontalAlignment="Center">Согласен</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="4" VerticalAlignment="Bottom" Height="30" FontSize="18" HorizontalAlignment="Center">Не согласен</TextBlock>
+        <Button x:Name="BackButton" Grid.Column="1" Grid.Row="2" Width="100" Height="50" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="BackButton_Click">Назад</Button>
     </Grid> 
 </Page>

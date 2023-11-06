@@ -98,7 +98,6 @@ namespace PsyTestWPF
                     }
                 }
             }
-
             return result;
         }
 
