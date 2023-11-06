@@ -38,7 +38,10 @@ namespace PsyTestWPF.pages
             {
                 ExelSaver saveUser = new ExelSaver();
                 saveUser.SaveResult(new User(UserName.Text, UserGrade.Text, MainWindow.GetAnswers()));
-                App.Current.Shutdown();
+
+                var exitWin = new ExitWindow();
+                exitWin.Show();
+                ButtonFin.IsEnabled = false;
             }
             else
             {

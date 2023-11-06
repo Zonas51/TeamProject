@@ -14,7 +14,7 @@
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Background" Value="#17212B"></Setter>
             <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">

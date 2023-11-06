@@ -26,22 +26,18 @@ namespace PsyTestWPF
         {
             return Answers;
         }
-
         public string GetGrade()
         {
             return Grade;
         }
-
         public string GetName()
         {
             return Name;
-
         }
     } 
 
     public class ExelSaver : ISaver
     {
-
         public void SaveResult(IUser user)
         {
             Workbook workbookResults = new Workbook();
@@ -61,7 +57,8 @@ namespace PsyTestWPF
         public static List<string> Convert(string file_name)
         {
             List<string> questions = new List<string>();
-            StreamReader sr = new StreamReader(file_name);
+            string file_path = AppContext.BaseDirectory + "..\\..\\src\\" + file_name;
+            StreamReader sr = new StreamReader(file_path);
            
             while (!sr.EndOfStream)
             {
@@ -100,6 +97,5 @@ namespace PsyTestWPF
             }
             return result;
         }
-
     }
 }
