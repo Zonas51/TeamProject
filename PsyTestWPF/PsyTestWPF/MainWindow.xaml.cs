@@ -52,5 +52,15 @@ namespace PsyTestWPF
         {
             Questions = TxtToListConverter.Convert("questions.txt");
         }
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
+
     }
 }

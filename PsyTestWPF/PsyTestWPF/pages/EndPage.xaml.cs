@@ -23,20 +23,27 @@ namespace PsyTestWPF.pages
     /// </summary>
     public partial class EndPage : Page
     {
-        
-
-        public EndPage()
+        public string errorText { get; set; }
+        public EndPage(string error_text)
         {
+            errorText = error_text;
+            DataContext = this;
             InitializeComponent();
         }
 
         private void ButtonFin_Click(object sender, RoutedEventArgs e)
         {
-            ExelSaver saveUser = new ExelSaver();
-            saveUser.SaveResult(new User(UserName.Text, UserGrade.Text, MainWindow.GetAnswers()));
-            
-            App.Current.Shutdown();
-        }
 
+            if (UserName.Text != "" && UserGrade.Text != "")
+            {
+                ExelSaver saveUser = new ExelSaver();
+                saveUser.SaveResult(new User(UserName.Text, UserGrade.Text, MainWindow.GetAnswers()));
+                App.Current.Shutdown();
+            }
+            else
+            {
+                NavigationService.Navigate(new EndPage("Введите имя пользователя и группу!"));
+            }
+        }
     }
 }

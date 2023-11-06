@@ -56,7 +56,7 @@ namespace PsyTestWPF.pages
             }
             else
             {
-                NavigationService.Navigate(new EndPage());
+                NavigationService.Navigate(new EndPage(""));
             }
         }
 
