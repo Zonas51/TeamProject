@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:PsyTestWPF.pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EndPage"
-      Background="#ffffff">
+      Title="EndPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
