@@ -56,9 +56,7 @@ namespace PsyTestWPF.pages
             }
         }
 
-        private void ButtonNo_Checked(object sender, RoutedEventArgs e)
-        {
 
-        }
+        
     }
 }

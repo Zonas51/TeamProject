@@ -1,4 +1,5 @@
-﻿using Spire.Xls;
+﻿using Microsoft.Win32;
+using Spire.Xls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -22,6 +23,8 @@ namespace PsyTestWPF.pages
     /// </summary>
     public partial class EndPage : Page
     {
+        
+
         public EndPage()
         {
             InitializeComponent();
@@ -29,18 +32,11 @@ namespace PsyTestWPF.pages
 
         private void ButtonFin_Click(object sender, RoutedEventArgs e)
         {
-            //ExelSaver saveUser = new ExelSaver();
-            //saveUser.SaveResult();
-            Workbook workbookResults = new Workbook();
-
-            Worksheet worksheet = workbookResults.Worksheets[0];
-
-
-            worksheet.Range[1, 1].Value = "Петя";
-            worksheet.Range[1, 2].Value = "15 лет";
-
-            workbookResults.SaveToFile("Результаты.xlsx", ExcelVersion.Version2016);
+            ExelSaver saveUser = new ExelSaver();
+            saveUser.SaveResult(new User(UserName.Text, UserGrade.Text, MainWindow.GetAnswers()));
+            
             App.Current.Shutdown();
         }
+
     }
 }
