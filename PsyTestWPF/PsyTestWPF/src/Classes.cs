@@ -41,7 +41,8 @@ namespace PsyTestWPF
         public void SaveResult(IUser user)
         {
             Workbook workbook = new Workbook();
-            workbook.LoadTemplateFromFile("Результаты.xlsx");
+            if (File.Exists("Результаты.xlsx")) workbook.LoadTemplateFromFile("Результаты.xlsx"); //TODO: make try
+
             Worksheet worksheet = workbook.Worksheets[0];
 
             worksheet.InsertRow(1);
@@ -49,7 +50,7 @@ namespace PsyTestWPF
             worksheet.Range[1, 2].Value = $"{user.GetGrade()}"; 
             worksheet.Range[1, 3].Value = $"{Analyzer.GetResult(user.GetAnswers())}";
 
-            workbook.SaveToFile("Результаты.xlsx", ExcelVersion.Version2016);
+            workbook.SaveToFile("Результаты.xlsx", ExcelVersion.Version2016); //TODO: make try
         }
     }
     
