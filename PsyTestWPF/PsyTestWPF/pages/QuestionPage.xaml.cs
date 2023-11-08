@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace PsyTestWPF.pages
 {
-    /// <summary>
-    /// Логика взаимодействия для QuestionPage.xaml
-    /// </summary>
     public partial class QuestionPage : Page
     {
         static List<string> questions;
@@ -30,11 +27,14 @@ namespace PsyTestWPF.pages
             question_text = questions[_numofques];
             NumOfQueston = _numofques;
             NumOfQuestonStr = $"{NumOfQueston + 1}/{questions.Count()}";
+
             DataContext = this;
             InitializeComponent();
+
             if (_numofques == 0)
             {
                 BackButton.IsEnabled = false;
+                BackButton.Background = Brushes.Gray;
             }
         }
 
@@ -54,10 +54,7 @@ namespace PsyTestWPF.pages
             {
                 NavigationService.Navigate(new QuestionPage(NumOfQueston + 1));
             }
-            else
-            {
-                NavigationService.Navigate(new EndPage(""));
-            }
+            else NavigationService.Navigate(new EndPage(""));
         }
 
         private void GoPrevPage()
@@ -70,7 +67,6 @@ namespace PsyTestWPF.pages
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-
             MainWindow.RemoveAnswer();
             GoPrevPage();
         }

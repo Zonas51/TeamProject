@@ -19,13 +19,10 @@ using Spire.Xls.Core;
 
 namespace PsyTestWPF
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        static List<byte> Answers = new List<byte>();
-        static List<string> Questions = new List<string>();
+        private static List<byte> Answers = new List<byte>();
+        private static List<string> Questions = new List<string>();
         public MainWindow()
         {
             PullQuestions();
@@ -52,15 +49,13 @@ namespace PsyTestWPF
         {
             Questions = TxtToListConverter.Convert("questions.txt");
         }
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             App.Current.Shutdown();
         }
-
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

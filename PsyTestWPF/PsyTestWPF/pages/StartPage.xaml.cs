@@ -24,10 +24,13 @@ namespace PsyTestWPF.pages
         {
             InitializeComponent();
         }
-
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new QuestionPage(0));
+        }
+        private void DELETE_THIS(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new EndPage());
         }
     }
 }

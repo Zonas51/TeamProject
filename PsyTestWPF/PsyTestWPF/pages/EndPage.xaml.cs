@@ -18,15 +18,17 @@ using System.Windows.Shapes;
 
 namespace PsyTestWPF.pages
 {
-    /// <summary>
-    /// Логика взаимодействия для EndPage.xaml
-    /// </summary>
     public partial class EndPage : Page
     {
-        public string errorText { get; set; }
+        public string errorText { get; set; } = "";
         public EndPage(string error_text)
         {
             errorText = error_text;
+            DataContext = this;
+            InitializeComponent();
+        }
+        public EndPage()
+        {
             DataContext = this;
             InitializeComponent();
         }
@@ -41,12 +43,12 @@ namespace PsyTestWPF.pages
 
                 var exitWin = new ExitWindow();
                 exitWin.Show();
+
                 ButtonFin.IsEnabled = false;
+                ButtonFin.Background = Brushes.Gray;
             }
-            else
-            {
-                NavigationService.Navigate(new EndPage("Введите имя пользователя и группу!"));
-            }
+            else NavigationService.Navigate(new EndPage("Введите имя пользователя и группу!"));
+            
         }
     }
 }

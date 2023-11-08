@@ -13,9 +13,9 @@ namespace PsyTestWPF
 {
     public class User : IUser
     {
-        public string Name;
-        public string Grade;
-        List<byte> Answers;
+        private string Name;
+        private string Grade;
+        private List<byte> Answers;
         public User(string name, string grade, List<byte> anwers)
         {
             Name = name;
@@ -40,15 +40,16 @@ namespace PsyTestWPF
     {
         public void SaveResult(IUser user)
         {
-            Workbook workbookResults = new Workbook();
+            Workbook workbook = new Workbook();
+            workbook.LoadTemplateFromFile("Результаты.xlsx");
+            Worksheet worksheet = workbook.Worksheets[0];
 
-            Worksheet worksheet = workbookResults.Worksheets[0];
-
+            worksheet.InsertRow(1);
             worksheet.Range[1, 1].Value = $"{user.GetName()}";
             worksheet.Range[1, 2].Value = $"{user.GetGrade()}"; 
             worksheet.Range[1, 3].Value = $"{Analyzer.GetResult(user.GetAnswers())}";
 
-            workbookResults.SaveToFile("Результаты.xlsx", ExcelVersion.Version2016);
+            workbook.SaveToFile("Результаты.xlsx", ExcelVersion.Version2016);
         }
     }
     
