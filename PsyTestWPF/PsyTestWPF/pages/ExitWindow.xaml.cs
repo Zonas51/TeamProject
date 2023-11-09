@@ -21,7 +21,7 @@ namespace PsyTestWPF.pages
     {
         public static string CreavityQoutient { get; set; } = null;
         public static int ResultOfTest;
-        public ExitWindow(User user)
+        public ExitWindow(User user) //TODO: переделать
         {
 
 

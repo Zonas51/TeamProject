@@ -28,7 +28,7 @@ namespace PsyTestWPF.pages
         {
             NavigationService.Navigate(new QuestionPage(new PsyTest()));
         }
-        private void DELETE_THIS(object sender, RoutedEventArgs e)
+        private void DELETE_THIS(object sender, RoutedEventArgs e) //TODO: удалить после завршения проекта
         {
             NavigationService.Navigate(new EndPage(new ExelSaver(), new PsyTest()));
         }
