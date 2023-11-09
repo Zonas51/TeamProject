@@ -20,15 +20,12 @@ namespace PsyTestWPF.pages
 {
     public partial class EndPage : Page
     {
-        public string errorText { get; set; } = "";
-        public EndPage(string error_text)
+        ISaver saveUser;
+        PsyTest CreavityTest;
+        public EndPage(ISaver saver, PsyTest _CreavityTest)
         {
-            errorText = error_text;
-            DataContext = this;
-            InitializeComponent();
-        }
-        public EndPage()
-        {
+            CreavityTest = _CreavityTest;
+            saveUser = saver;
             DataContext = this;
             InitializeComponent();
         }
@@ -38,17 +35,15 @@ namespace PsyTestWPF.pages
 
             if (UserName.Text != "" && UserGrade.Text != "")
             {
-                ExelSaver saveUser = new ExelSaver();
-                saveUser.SaveResult(new User(UserName.Text, UserGrade.Text, MainWindow.GetAnswers()));
+                saveUser.SaveResult(new User(UserName.Text, UserGrade.Text, CreavityTest.GetAnswers()));
 
-                var exitWin = new ExitWindow(new User(UserName.Text, UserGrade.Text, MainWindow.GetAnswers()));
+                var exitWin = new ExitWindow(new User(UserName.Text, UserGrade.Text, CreavityTest.GetAnswers()));
                 exitWin.Show();
 
                 ButtonFin.IsEnabled = false;
                 ButtonFin.Background = Brushes.Gray;
             }
-            else NavigationService.Navigate(new EndPage("Введите имя пользователя и группу!"));
-            
+            else errorTextBlock.Text = "Введите имя пользователя и группу!";
         }
     }
 }

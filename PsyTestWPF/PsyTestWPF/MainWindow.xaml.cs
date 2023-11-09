@@ -21,33 +21,11 @@ namespace PsyTestWPF
 {
     public partial class MainWindow : Window
     {
-        private static List<byte> Answers = new List<byte>();
-        private static List<string> Questions = new List<string>();
         public MainWindow()
         {
-            PullQuestions();
+
             InitializeComponent();
             MainFrame.Content = new StartPage();
-        }
-        public static void AddAnswer(byte num)
-        {
-            Answers.Add(num);
-        }
-        public static void RemoveAnswer()
-        {
-            Answers.RemoveAt(Answers.Count - 1);
-        }
-        public static List<byte> GetAnswers()
-        {
-            return Answers;
-        }
-        public static List<string> GetQuestions()
-        {
-            return Questions;
-        }
-        public static void PullQuestions()
-        {
-            Questions = TxtToListConverter.Convert("questions.txt");
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -56,6 +34,7 @@ namespace PsyTestWPF
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        
         }
     }
 }

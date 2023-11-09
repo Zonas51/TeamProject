@@ -23,7 +23,7 @@ namespace PsyTestWPF.pages
         public static int ResultOfTest;
         public ExitWindow(User user)
         {
-            
+
 
             ResultOfTest = Analyzer.GetResult(user.GetAnswers());
             if (ResultOfTest <= 24) CreavityQoutient = "У вас очень низкий уровень креативности";

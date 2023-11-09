@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Converters;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -17,21 +18,20 @@ namespace PsyTestWPF.pages
 {
     public partial class QuestionPage : Page
     {
-        static List<string> questions;
         public static string question_text { get; set; } = null;
         public static string NumOfQuestonStr { get; set; } = null;
-        static int NumOfQueston;
-        public QuestionPage(int _numofques)
+
+        private PsyTest CreavityTest;
+        public QuestionPage(PsyTest _CreavityTest)
         {
-            questions = MainWindow.GetQuestions();
-            question_text = questions[_numofques];
-            NumOfQueston = _numofques;
-            NumOfQuestonStr = $"{NumOfQueston + 1}/{questions.Count()}";
+            CreavityTest = _CreavityTest;
+            question_text = _CreavityTest.GetCurQuestion();
+            NumOfQuestonStr = $"{CreavityTest.GetNumOfQuestion() + 1}/{CreavityTest.GetQuestions().Count()}";
 
             DataContext = this;
             InitializeComponent();
 
-            if (_numofques == 0)
+            if (CreavityTest.GetNumOfQuestion() == 0)
             {
                 BackButton.IsEnabled = false;
                 BackButton.Background = Brushes.Gray;
@@ -40,35 +40,54 @@ namespace PsyTestWPF.pages
 
         private void ButtonNo_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.AddAnswer(0);
+            CreavityTest.AddAnswer(0);
             GoNextPage();
         }
         private void ButtonYes_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.AddAnswer(1);
+            CreavityTest.AddAnswer(1);
             GoNextPage();
         }
         private void GoNextPage()
         {
-            if (NumOfQueston + 1 < questions.Count())
+            if (CreavityTest.GetNumOfQuestion() + 1 < CreavityTest.GetQuestions().Count())
             {
-                NavigationService.Navigate(new QuestionPage(NumOfQueston + 1));
+                question_text = CreavityTest.GetNextQuestion();
+                this.Refresh();
             }
-            else NavigationService.Navigate(new EndPage(""));
+            else NavigationService.Navigate(new EndPage(new ExelSaver(), CreavityTest));
         }
 
         private void GoPrevPage()
         {
-            if (NumOfQueston != 0)
-            {
-                NavigationService.Navigate(new QuestionPage(NumOfQueston - 1));
-            }
+            question_text = CreavityTest.GetPrevQuestion();
+            this.Refresh();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.RemoveAnswer();
+            CreavityTest.RemoveAnswer();
             GoPrevPage();
+        }
+        private void Refresh()
+        {
+            ButtonYes.IsChecked = false;
+            ButtonNo.IsChecked = false;
+
+            NumOfQuestonStr = $"{CreavityTest.GetNumOfQuestion() + 1}/{CreavityTest.GetQuestions().Count()}";
+            questionTextBlock.Text = question_text;
+            numOfQuesTextBlock.Text = NumOfQuestonStr;
+
+            if (CreavityTest.GetNumOfQuestion() == 0)
+            {
+                BackButton.IsEnabled = false;
+                BackButton.Background = Brushes.Gray;
+            }
+            else
+            {
+                BackButton.IsEnabled = true;
+                BackButton.Background = (Brush)new BrushConverter().ConvertFrom("#1E2C3A");
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PsyTestWPF
 {
-    public  interface IUser
+    public interface IUser
     {
         string GetName();
         string GetGrade();

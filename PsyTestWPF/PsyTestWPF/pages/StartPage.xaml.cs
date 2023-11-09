@@ -26,11 +26,11 @@ namespace PsyTestWPF.pages
         }
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new QuestionPage(0));
+            NavigationService.Navigate(new QuestionPage(new PsyTest()));
         }
         private void DELETE_THIS(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new EndPage());
+            NavigationService.Navigate(new EndPage(new ExelSaver(), new PsyTest()));
         }
     }
 }

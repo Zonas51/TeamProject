@@ -29,8 +29,8 @@
         <Viewbox Grid.Row="2" Grid.Column="4" Height="100" Width="100">
             <RadioButton x:Name="ButtonNo" Click="ButtonNo_Click"></RadioButton>
         </Viewbox>
-        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" FontSize="30" VerticalAlignment="Top" Grid.ColumnSpan="5" TextWrapping="Wrap"  Text="{Binding question_text}"></TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding NumOfQuestonStr}" FontSize="40"></TextBlock>
+        <TextBlock x:Name="questionTextBlock" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" FontSize="30" VerticalAlignment="Top" Grid.ColumnSpan="5" TextWrapping="Wrap"  Text="{Binding question_text}"></TextBlock>
+        <TextBlock x:Name="numOfQuesTextBlock" Grid.Row="0" Grid.Column="1" Text="{Binding NumOfQuestonStr}" FontSize="40"></TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" Height="30" FontSize="18" HorizontalAlignment="Center">Согласен</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="4" VerticalAlignment="Bottom" Height="30" FontSize="18" HorizontalAlignment="Center">Не согласен</TextBlock>
         <Button x:Name="BackButton" Grid.Column="1" Grid.Row="2" Width="100" Height="50" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="BackButton_Click">Назад</Button>

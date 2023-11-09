@@ -62,7 +62,7 @@
                 NavigationUIVisibility="Hidden" MinWidth="400" MinHeight="250"></Frame>
             <Button Style="{DynamicResource ButtonStyle1}" Grid.Column="2" Width="30" Height="30" Click="Button_Click" HorizontalAlignment="Right" Margin="0,0,13,0">
                 <Path Data="M7.1999998,0L16,8.7999997 24.799999,0 32,7.1999998 23.2,16 32,24.799999 24.799999,32 16,23.2 7.1999998,32 0,24.799999 8.7999997,16 0,7.1999998z" 
-                     Stretch="Uniform" Fill="red"  Width="25" Height="25"/>
+                     Stretch="Uniform" Fill="OrangeRed"  Width="25" Height="25"/>
             </Button>
         </Grid>
     </Border>
