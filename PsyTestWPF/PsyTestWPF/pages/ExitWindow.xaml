@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PsyTestWPF.pages"
+        Icon="./../src/IconNew.ico"
         mc:Ignorable="d"
         Title="" Height="100" Width="430" WindowStyle="None" ResizeMode="NoResize"
         Background="#2B2D31">

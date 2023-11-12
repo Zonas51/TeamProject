@@ -147,5 +147,8 @@
   <ItemGroup>
     <Resource Include="src\questions.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\IconNew.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

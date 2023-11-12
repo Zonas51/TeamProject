@@ -18,7 +18,7 @@ namespace PsyTestWPF.pages
     /// <summary>
     /// Логика взаимодействия для StartPage.xaml
     /// </summary>
-    public partial class StartPage : Page
+    public partial class StartPage : Page 
     {
         public StartPage()
         {
