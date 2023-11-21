@@ -11,7 +11,7 @@ using Spire.Xls.Core;
 
 namespace PsyTestWPF
 {
-    public class PsyTest //TODO: добавить интерфейс
+    public class PsyTest :ITest 
     {
         private List<string> listQustions = new List<string>();
         private List<byte> listAnswers = new List<byte>();
