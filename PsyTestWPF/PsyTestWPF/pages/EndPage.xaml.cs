@@ -21,8 +21,8 @@ namespace PsyTestWPF.pages
     public partial class EndPage : Page
     {
         ISaver saveUser;
-        PsyTest CreavityTest;
-        public EndPage(ISaver saver, PsyTest _CreavityTest)
+        ITest CreavityTest;
+        public EndPage(ISaver saver, ITest _CreavityTest)
         {
             CreavityTest = _CreavityTest;
             saveUser = saver;

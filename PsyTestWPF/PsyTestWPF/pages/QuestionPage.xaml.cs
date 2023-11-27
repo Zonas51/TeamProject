@@ -21,8 +21,8 @@ namespace PsyTestWPF.pages
         public static string question_text { get; set; } = null;
         public static string NumOfQuestonStr { get; set; } = null;
 
-        private PsyTest CreavityTest;
-        public QuestionPage(PsyTest _CreavityTest)
+        private ITest CreavityTest;
+        public QuestionPage(ITest _CreavityTest)
         {
             CreavityTest = _CreavityTest;
             question_text = _CreavityTest.GetCurQuestion();
