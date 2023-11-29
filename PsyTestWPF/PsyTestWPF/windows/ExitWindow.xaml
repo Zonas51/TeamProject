@@ -7,13 +7,14 @@
         Icon="./../src/IconNew.ico"
         mc:Ignorable="d"
         Title="" Height="100" Width="430" WindowStyle="None" ResizeMode="NoResize"
-        Background="#2B2D31">
-    <Border MouseLeftButtonDown="Border_MouseLeftButtonDown" BorderThickness="1" CornerRadius="15">
+        Background="#2B2D31"
+        MouseLeftButtonDown="Border_MouseLeftButtonDown"
+        Topmost="True">
+    <Border BorderThickness="1" CornerRadius="15">
         <Grid>
             <Button Width="50" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,5,5" Click="Button_Click">OK</Button>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="top" FontSize="15" Margin="5,10,0,0">Результат сохранён!</TextBlock>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding CreavityQoutient}" FontSize="20"></TextBlock>
         </Grid>
     </Border>
-    
 </Window>

@@ -18,8 +18,8 @@ namespace PsyTestWPF.pages
 {
     public partial class QuestionPage : Page
     {
-        public static string question_text { get; set; } = null;
-        public static string NumOfQuestonStr { get; set; } = null;
+        public string question_text { get; set; } = null;
+        public string NumOfQuestonStr { get; set; } = null;
 
         private ITest CreavityTest;
         public QuestionPage(ITest _CreavityTest)

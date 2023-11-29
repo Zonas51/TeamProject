@@ -23,7 +23,6 @@ namespace PsyTestWPF
     {
         public MainWindow()
         {
-
             InitializeComponent();
             MainFrame.Content = new StartPage();
         }
@@ -34,7 +33,6 @@ namespace PsyTestWPF
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
-        
         }
     }
 }

@@ -90,7 +90,7 @@ namespace PsyTestWPF
         public void SaveResult(IUser user)
         {
             Workbook workbook = new Workbook();
-            if (File.Exists("Результаты.xlsx")) workbook.LoadTemplateFromFile("Результаты.xlsx"); //TODO: make try
+            if (File.Exists("Результаты.xlsx")) workbook.LoadTemplateFromFile("Результаты.xlsx");
 
             Worksheet worksheet = workbook.Worksheets[0];
 

@@ -37,7 +37,7 @@ namespace PsyTestWPF.pages
             {
                 saveUser.SaveResult(new User(UserName.Text, UserGrade.Text, CreavityTest.GetAnswers()));
 
-                var exitWin = new ExitWindow(new User(UserName.Text, UserGrade.Text, CreavityTest.GetAnswers()));
+                var exitWin = new ExitWindow(Analyzer.GetResult(CreavityTest.GetAnswers()));
                 exitWin.Show();
 
                 ButtonFin.IsEnabled = false;
