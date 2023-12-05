@@ -17,7 +17,8 @@ namespace PsyTestWPF.pages
         }
         private void ButtonFin_Click(object sender, RoutedEventArgs e)
         {
-            if (UserName.Text != "" && UserGrade.Text != "")
+            int check = UserNameAndGradeCheck();
+            if (check == 0)
             {
                 saveUser.SaveResult(new User(UserName.Text, UserGrade.Text, CreavityTest.GetAnswers()));
 
@@ -27,7 +28,24 @@ namespace PsyTestWPF.pages
                 ButtonFin.IsEnabled = false;
                 ButtonFin.Background = Brushes.Gray;
             }
-            else errorTextBlock.Text = "Введите имя пользователя и группу!";
+            else
+            {
+                switch (check)
+                {
+                    case 1: errorTextBlock.Text = "Введите имя пользователя!"; break;
+                    case 2: errorTextBlock.Text = "Введите группу!"; break;
+                    case 3: errorTextBlock.Text = "Имя пользователя слишком длинное!"; break;
+                    case 4: errorTextBlock.Text = "Название группы слишком длинное!"; break;
+                }
+            }
+        }
+        private int UserNameAndGradeCheck()
+        {
+            if (UserName.Text == "") return 1;
+            if (UserGrade.Text == "") return 2;
+            if (UserName.Text.Length > 100) return 3;
+            if (UserGrade.Text.Length > 100) return 4;
+            return 0;
         }
     }
 }
