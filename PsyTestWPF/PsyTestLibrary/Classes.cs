@@ -112,7 +112,6 @@ namespace PsyTestWPF
                 str = str.Remove(0, 3).Trim();
                 questions.Add(str);
             }
-
             return questions;
         }
 

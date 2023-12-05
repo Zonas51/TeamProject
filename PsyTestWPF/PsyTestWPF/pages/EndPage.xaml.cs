@@ -15,10 +15,8 @@ namespace PsyTestWPF.pages
             DataContext = this;
             InitializeComponent();
         }
-
         private void ButtonFin_Click(object sender, RoutedEventArgs e)
         {
-
             if (UserName.Text != "" && UserGrade.Text != "")
             {
                 saveUser.SaveResult(new User(UserName.Text, UserGrade.Text, CreavityTest.GetAnswers()));
