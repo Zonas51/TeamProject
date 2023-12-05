@@ -88,8 +88,6 @@
     <Compile Include="windows\ExitWindow.xaml.cs">
       <DependentUpon>ExitWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Classes.cs" />
-    <Compile Include="src\Interfaces.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -152,6 +150,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="src\IconNew.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PsyTestLibrary\PsyTestLibrary.csproj">
+      <Project>{fc8d4790-81a6-4ebc-a991-441630df35fa}</Project>
+      <Name>PsyTestLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

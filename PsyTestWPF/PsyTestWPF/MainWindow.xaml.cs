@@ -19,7 +19,7 @@ using Spire.Xls.Core;
 
 namespace PsyTestWPF
 {
-    public partial class MainWindow : Window //TODO: организовать библиотеку классов
+    public partial class MainWindow : Window 
     {
         public MainWindow()
         {

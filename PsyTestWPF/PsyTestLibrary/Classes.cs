@@ -99,7 +99,7 @@ namespace PsyTestWPF
             worksheet.Range[1, 2].Value = $"{user.GetGrade()}";
             worksheet.Range[1, 3].Value = $"{Analyzer.GetResult(user.GetAnswers())}";
 
-            workbook.SaveToFile("Результаты.xlsx", ExcelVersion.Version2016); //TODO: make try
+            workbook.SaveToFile("Результаты.xlsx", ExcelVersion.Version2016); 
         }
     }
 
