@@ -25,6 +25,5 @@
                    О.А. Шляпникова, М.М. Кашапов"></TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" TextWrapping="Wrap" TextAlignment="Center"
                    Text="Инструкция. В этом опроснике содержится ряд утверждений, каждое из которых вам предлагается оценить, примерить на себя. Если вы согласны с тем, что данное высказывание можно отнести к вам, нажимайте 'согласен', если нет, то 'не согласен'"></TextBlock>
-        <Button Grid.Row="2" Grid.Column="1" Height="30" Width="30" HorizontalAlignment="Left" Click="DELETE_THIS"></Button>
     </Grid>
 </Page>
