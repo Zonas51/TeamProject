@@ -90,9 +90,12 @@ namespace PsyTestWPF
             Worksheet worksheet = workbook.Worksheets[0];
 
             worksheet.InsertRow(1);
-            worksheet.Range[1, 1].Value = $"{user.GetName()}";
-            worksheet.Range[1, 2].Value = $"{user.GetGrade()}";
-            worksheet.Range[1, 3].Value = $"{Analyzer.GetResult(user.GetAnswers())}";
+            worksheet.Range[1, 1].Value = $"ФИО";
+            worksheet.Range[1, 2].Value = $"Группа";
+            worksheet.Range[1, 3].Value = $"Результат";
+            worksheet.Range[2, 1].Value = $"{user.GetName()}";
+            worksheet.Range[2, 2].Value = $"{user.GetGrade()}";
+            worksheet.Range[2, 3].Value = $"{Analyzer.GetResult(user.GetAnswers())}";
 
             workbook.SaveToFile("Результаты.xlsx", ExcelVersion.Version2016); 
         }
@@ -103,7 +106,7 @@ namespace PsyTestWPF
         public static List<string> Convert(string file_name)
         {
             List<string> questions = new List<string>();
-            string file_path = AppContext.BaseDirectory + "..\\..\\src\\" + file_name;
+            string file_path = AppContext.BaseDirectory + "lib\\" + file_name;
             StreamReader sr = new StreamReader(file_path);
 
             while (!sr.EndOfStream)
